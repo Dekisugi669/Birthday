@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🎉お誕生日おめでとう🎉</h1>
+            <h1>アイシャ👩‍🦰</h1>
+            <p>Semoga hari ini penuh dengan kebahagiaan dan kenangan indah.</p>
+            <button onclick="playMusic()">Mainkan Musik</button>
+        </div>
+    </div>
+    <audio id="birthdayMusic" src="mp3/Mas.mp3"></audio>
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <script>
+        function playMusic() {
+            const music = document.getElementById('birthdayMusic');
+            music.play();
+            music.onplay = () => showConfetti();  // Menampilkan konfeti saat musik mulai dimainkan
+        }
+
+        function showConfetti() {
+            const confettiContainer = document.getElementById('confettiContainer');
+            for (let i = 0; i < 100; i++) {  // Membuat 100 elemen konfeti
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';  // Posisi horizontal acak
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';  // Durasi animasi acak
+                confettiContainer.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>
